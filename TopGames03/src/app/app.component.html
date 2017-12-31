@@ -1,0 +1,17 @@
+<h1>
+  My Top {{topGames.length}} ZX Spectrum Games
+</h1>
+<div>
+  Filter: 
+  <input #searchBox placeholder="Search"
+    (keyup)="0" />
+</div>
+
+<div *ngFor="let game of topGames | contentFilter: searchBox.value">
+  <h2>
+    {{ game.title }}  
+    (<span [class]="'color-'+game.year">{{ game.year }}</span>)
+  </h2>
+  <p>by <em>{{ game.publisher }}</em></p>
+  <p><code>{{ game.genre }}</code></p>
+</div>
